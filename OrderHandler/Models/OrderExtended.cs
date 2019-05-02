@@ -8,8 +8,8 @@ namespace OrderHandler.Models
     public class OrderExtended
     {
         public long OrderId { get; set; }
-        public int TotalSumma { get; set; }
-        public int TotalRabatt { get; set; }
+        public double TotalSumma { get; set; }
+        public double TotalRabatt { get; set; }
         public IEnumerable<OrderRad> OrderRader { get; set; }
 
         public OrderExtended()

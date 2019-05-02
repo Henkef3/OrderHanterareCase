@@ -9,8 +9,8 @@ namespace OrderHandler.Models
     {
         [Key]
         public long OrderId { get; set; }
-        [DataType(DataType.Currency)]
-        public int TotalRabatt { get; set; } = 0;
+        [Range(0, 1, ErrorMessage = "Please specify a number between {1} and {2}")]
+        public double TotalRabatt { get; set; } = 0;
         [ForeignKey("Id")]
         public long Id { get; set; }
     }

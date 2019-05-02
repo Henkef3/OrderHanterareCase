@@ -10,9 +10,9 @@ namespace OrderHandler.Models
         public long OrderRadId { get; set; }
         public string Artikel { get; set; }
         public int Antal { get; set; } = 0;
-        public int Pris { get; set; } = 0;
-        public int TotalRabatt { get; set; } = 0;
-        public int TotalSumma { get; set; }
+        public double Pris { get; set; } = 0;
+        public double TotalRabatt { get; set; } = 0;
+        public double TotalSumma { get; set; }
 
         public OrderRadExtended()
         {

@@ -15,9 +15,9 @@ namespace OrderHandler.Models
         public string Artikel { get; set; }
         public int Antal { get; set; } = 0;
         [DataType(DataType.Currency)]
-        public int Pris { get; set; } = 0;
-        [DataType(DataType.Currency)]
-        public int TotalRabatt { get; set; } = 0;
+        public double Pris { get; set; } = 0;
+        [Range(0,1, ErrorMessage = "Please specify a number between {1} and {2}")]
+        public double TotalRabatt { get; set; } = 0;
 
         [ForeignKey("OrderId")]
         public long OrderId { get; set; }

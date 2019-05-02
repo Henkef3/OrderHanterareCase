@@ -26,10 +26,11 @@ namespace OrderHandler.Repository
             var orderRad = GetOrderRadById(id);
             var antal = orderRad.Antal;
             var pris = orderRad.Pris;
+            var summa = antal * pris;
             var rabatt = orderRad.TotalRabatt;
             return new OrderRadExtended(GetOrderRadById(id))
             {
-                TotalSumma = (antal*pris) - rabatt
+                TotalSumma = summa - (summa * rabatt)
             };
         }
     }

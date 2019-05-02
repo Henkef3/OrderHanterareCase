@@ -23,22 +23,24 @@ namespace OrderHandler.Repository
         public OrderExtended GetOrderWithDetails(long id)
         {
             var orderRader = OrderHandlerContext.OrderRader.Where(a => a.OrderId == id);
+            var summa = CalculateTotalSumma(orderRader);
             var rabatt = GetOrderById(id).TotalRabatt;
             return new OrderExtended(GetOrderById(id))
             {
                 OrderRader = orderRader,
-                TotalSumma = CalculateTotalSumma(orderRader) - rabatt
+                TotalSumma = summa - (summa * rabatt)
             };
 
 
         }
 
-        public int CalculateTotalSumma(IQueryable<OrderRad> orderRader)
+        public double CalculateTotalSumma(IQueryable<OrderRad> orderRader)
         {
-            int summa = 0;
+            double summa = 0;
             foreach (var orderRad in orderRader)
             {
-                summa += (orderRad.Pris * orderRad.Antal) - orderRad.TotalRabatt;
+                var tempSumma = orderRad.Pris * orderRad.Antal;
+                summa += tempSumma - (tempSumma * orderRad.TotalRabatt);
             }
             return summa;
         }
