@@ -27,4 +27,9 @@ Welcome! Here you can find out how to run the OrderHanterareCase project
 	- Go to the Solution Explorer and right click on OrderHandler. Find and press Publish
 	- Press Folder and then Publish
 	- Go to the path you specified. Default root is ..\OrderHandler\OrderHandler\bin\Release\netcoreapp2.2\publish
-	
+
+# Running api calls against the Api:
+
+## Running local api calls:
+For running local Api calls against the Api the following Postman library can be used:
+	- https://www.getpostman.com/collections/cd6d0ab77c1fe172569b
